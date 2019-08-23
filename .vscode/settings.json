@@ -1,0 +1,20 @@
+{
+  "[html]": {
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": true
+    },
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
