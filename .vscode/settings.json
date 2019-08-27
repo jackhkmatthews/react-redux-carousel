@@ -16,5 +16,5 @@
       "source.fixAll.tslint": true
     },
   },
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.suggest.autoImports": true
 }

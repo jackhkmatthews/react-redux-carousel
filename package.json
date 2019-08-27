@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
+    "build:watch": "webpack --watch",
     "tslint": "tslint",
     "prettier": "prettier"
   },
@@ -20,10 +21,11 @@
     "typescript": "^3.5.3",
     "typescript-tslint-plugin": "^0.5.4",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7"
-  },
-  "dependencies": {
+    "webpack-cli": "^3.3.7",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1"
+  },
+  "dependencies": {
+    "redux": "^4.0.4"
   }
 }
