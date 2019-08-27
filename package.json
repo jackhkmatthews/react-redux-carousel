@@ -7,18 +7,30 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "build:watch": "webpack --watch",
+    "start": "webpack-dev-server --open",
     "tslint": "tslint",
-    "prettier": "prettier"
+    "prettier": "prettier",
+    "storybook": "start-storybook"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@storybook/addon-info": "^5.1.11",
+    "@storybook/addon-storyshots": "^5.1.11",
+    "@storybook/cli": "^5.1.11",
+    "@storybook/react": "^5.1.11",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
+    "@types/storybook__addon-storyshots": "^5.1.1",
+    "@types/storybook__react": "^4.0.2",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
     "prettier": "^1.18.2",
+    "react-docgen-typescript-loader": "^3.1.1",
     "ts-loader": "^6.0.4",
     "tslint": "^5.19.0",
     "tslint-config-prettier": "^1.18.0",
@@ -32,6 +44,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "webpack-dev-server": "^3.8.0"
   }
 }

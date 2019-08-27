@@ -1,11 +1,12 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import App from "./app";
 import {
   CardImageFilters,
   setCardImageFilter,
   toggleCard
-} from "./state/actions";
-import { store } from "./state/store";
+} from "./core/state/actions";
+import { store } from "./core/state/store";
 
 // Log the initial state
 console.log(store.getState());
@@ -22,7 +23,4 @@ store.dispatch(setCardImageFilter(CardImageFilters.SHOW_PEOPLE));
 // Stop listening to state updates
 unsubscribe();
 
-const myName = "Josh Perez";
-const element = <h1>Hello, {myName}</h1>;
-
-ReactDOM.render(element, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
