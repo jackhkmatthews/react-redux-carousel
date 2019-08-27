@@ -16,5 +16,10 @@
       "source.fixAll.tslint": true
     },
   },
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": true
+    },
+  },
   "typescript.suggest.autoImports": true
 }

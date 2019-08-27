@@ -1,3 +1,5 @@
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import {
   CardImageFilters,
   setCardImageFilter,
@@ -19,3 +21,8 @@ store.dispatch(setCardImageFilter(CardImageFilters.SHOW_PEOPLE));
 
 // Stop listening to state updates
 unsubscribe();
+
+const myName = "Josh Perez";
+const element = <h1>Hello, {myName}</h1>;
+
+ReactDOM.render(element, document.getElementById("root"));
