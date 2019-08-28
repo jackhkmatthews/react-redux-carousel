@@ -1,18 +1,18 @@
 import * as React from "react";
+import { initialCards } from "./core/state/reducers";
 import Action from "./shared/action/action";
+import CardList from "./shared/card-list/card-list";
 
 function App() {
   return (
     <div>
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-        <Action>Click me</Action>
-      </header>
+      <Action>Landscape</Action>
+      <Action>People</Action>
+      <Action>Holiday</Action>
+      <header></header>
+      <main>
+        <CardList cards={initialCards} />
+      </main>
     </div>
   );
 }
