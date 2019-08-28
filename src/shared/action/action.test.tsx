@@ -4,7 +4,8 @@ import Action from "./action";
 
 test("renders text", () => {
   const text = "Click me";
-  const { getByText } = render(<Action>{text}</Action>);
+  const handleClick = () => console.log("hi");
+  const { getByText } = render(<Action onClick={handleClick}>{text}</Action>);
   const buttonText = getByText(text);
   expect(buttonText).toBeTruthy();
 });

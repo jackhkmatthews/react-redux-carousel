@@ -28,7 +28,7 @@ export const Inner = styled.div<IFlipProps>`
   transform: ${props => (props.flipped ? "rotateY(180deg)" : "rotate(0deg)")};
 `;
 
-export const Front = styled.div`
+export const Front = styled.div<IFlipProps>`
   display: inline-block;
   line-height: 0;
   position: absolute;
@@ -36,6 +36,8 @@ export const Front = styled.div`
   height: 100%;
   backface-visibility: hidden;
   left: 0;
+  transition: opacity 0.8s;
+  opacity: ${props => (props.flipped ? "0" : "1")};
 `;
 
 export const Img = styled.img`

@@ -4,14 +4,17 @@ import Action from "./shared/action/action";
 import CardList from "./shared/card-list/card-list";
 
 function App() {
+  function handleClick() {
+    console.log("click");
+  }
   return (
     <div>
-      <Action>Landscape</Action>
-      <Action>People</Action>
-      <Action>Holiday</Action>
+      <Action onClick={handleClick}>Landscape</Action>
+      <Action onClick={handleClick}>People</Action>
+      <Action onClick={handleClick}>Holiday</Action>
       <header></header>
       <main>
-        <CardList cards={initialCards} />
+        <CardList cards={initialCards} onCardClick={handleClick} />
       </main>
     </div>
   );

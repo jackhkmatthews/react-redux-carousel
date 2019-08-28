@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const List = styled.ul`
+export const CardList = styled.ul`
   margin: auto;
   padding: 0;
   list-style: none;

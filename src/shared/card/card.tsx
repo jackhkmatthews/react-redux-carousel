@@ -21,7 +21,7 @@ export default ({
   return (
     <Card onClick={onClick} flipped={flipped}>
       <Inner flipped={flipped}>
-        <Front>
+        <Front flipped={flipped}>
           <Img src={imgSrc} alt={imgAltText} />
         </Front>
         <Back bgColor={color}>

@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Button } from "./action.styles";
+import { Action } from "./action.styles";
 
-function Action(props: any) {
-  function handleClick(e: any) {
-    console.log("clicked");
-  }
-  return <Button onClick={handleClick}>{props.children}</Button>;
+interface IProps {
+  children: any;
+  onClick: () => void;
 }
 
-export default Action;
+export default ({ children, onClick }: IProps) => {
+  return <Action onClick={() => onClick()}>{children}</Action>;
+};
