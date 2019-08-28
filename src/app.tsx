@@ -11,7 +11,7 @@ function App() {
         <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           Learn React
         </a>
-        <Action />
+        <Action>Click me</Action>
       </header>
     </div>
   );

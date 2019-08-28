@@ -12,6 +12,7 @@
         "name": "typescript-tslint-plugin"
       }
     ],
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "esModuleInterop": true
   }
 }
