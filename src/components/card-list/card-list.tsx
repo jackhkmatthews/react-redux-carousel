@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ICard } from "../../core/state/types";
+import { ICard } from "../../state/types";
 import Card from "../card/card";
 import { CardListInner, ListItem } from "./card-list.styles";
 

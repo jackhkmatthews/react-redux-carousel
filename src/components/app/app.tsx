@@ -1,7 +1,7 @@
 import * as React from "react";
-import FilterAction from "../shared/filter-action/filter-action";
-import VisibleCardList from "../shared/visible-card-list/visible-card-list";
-import { CARD_IMAGE_FILTERS } from "./state/types";
+import { CARD_IMAGE_FILTERS } from "../../state/types";
+import FilterAction from "../filter-action/filter-action";
+import VisibleCardList from "../visible-card-list/visible-card-list";
 
 function App() {
   return (

@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
-import { toggleCard } from "../../core/state/actions";
+import { toggleCard } from "../../state/actions";
 import {
   CARD_IMAGE_FILTERS,
   CardImageFilter,
   IAppState,
   ICard
-} from "../../core/state/types";
+} from "../../state/types";
 import CardList from "../card-list/card-list";
 
 const getVisibleCards = (cards: ICard[], filter: CardImageFilter) => {

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import { setCardImageFilter } from "../../core/state/actions";
-import { CardImageFilter, IAppState } from "../../core/state/types";
+import { setCardImageFilter } from "../../state/actions";
+import { CardImageFilter, IAppState } from "../../state/types";
 import Action from "../action/action";
 
 export interface IFilterActionProps {
