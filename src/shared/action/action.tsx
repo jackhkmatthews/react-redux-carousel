@@ -1,11 +1,16 @@
 import * as React from "react";
-import { Action } from "./action.styles";
+import { InnerAction } from "./action.styles";
 
 interface IProps {
+  active: boolean;
   children: any;
-  onClick: () => void;
+  handleClick: () => void;
 }
 
-export default ({ children, onClick }: IProps) => {
-  return <Action onClick={() => onClick()}>{children}</Action>;
-};
+export default function Action({ active, children, handleClick }: IProps) {
+  return (
+    <InnerAction onClick={handleClick} disabled={active}>
+      {children}
+    </InnerAction>
+  );
+}

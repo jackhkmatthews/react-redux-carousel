@@ -10,7 +10,7 @@ interface IProps {
 
 export default function CardList({ cards, handleCardClick }: IProps) {
   const listItems = cards.map((card: ICard, index) => (
-    <ListItem key={index}>
+    <ListItem key={card.imgSrc}>
       <Card {...card} onClick={() => handleCardClick(index)} />
     </ListItem>
   ));

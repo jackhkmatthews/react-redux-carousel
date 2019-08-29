@@ -1,17 +1,25 @@
 import * as React from "react";
-import Action from "../shared/action/action";
+import FilterAction from "../shared/filter-action/filter-action";
 import VisibleCardList from "../shared/visible-card-list/visible-card-list";
+import { CARD_IMAGE_FILTERS } from "./state/types";
 
 function App() {
-  function handleClick() {
-    console.log("click");
-  }
   return (
     <div>
-      <Action onClick={handleClick}>Landscape</Action>
-      <Action onClick={handleClick}>People</Action>
-      <Action onClick={handleClick}>Holiday</Action>
-      <header></header>
+      <header>
+        <h1>React Redux Carousel</h1>
+      </header>
+      <nav>
+        <FilterAction filter={CARD_IMAGE_FILTERS.showAll}>
+          Show All
+        </FilterAction>
+        <FilterAction filter={CARD_IMAGE_FILTERS.showDay}>
+          Show Day
+        </FilterAction>
+        <FilterAction filter={CARD_IMAGE_FILTERS.showNight}>
+          Show Night
+        </FilterAction>
+      </nav>
       <main>
         <VisibleCardList />
       </main>
