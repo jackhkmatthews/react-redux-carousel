@@ -1,52 +1,19 @@
 import { combineReducers } from "redux";
 import {
-  CardImageFilters,
-  SET_ACTIVE_CARD,
-  SET_CARD_IMAGE_FILTER,
-  TOGGLE_CARD
-} from "./actions";
+  initialActiveCardIndexState,
+  initialCardImageFilterState,
+  initialCardsState
+} from "./initial";
+import {
+  APP_ACTION_TYPES,
+  ISetActiveCardAction,
+  ISetCardImageFilterAction,
+  IToggleCardAction
+} from "./types";
 
-export interface ICard {
-  color: string;
-  day: boolean;
-  description: string;
-  flipped: boolean;
-  imgAltText: string;
-  imgSrc: string;
-}
-
-export const initialCards: ICard[] = [
-  {
-    color: "peachpuff",
-    day: true,
-    description: "this is the description",
-    flipped: false,
-    imgAltText: "this is the alt",
-    imgSrc:
-      "https://cdn.pixabay.com/photo/2017/03/14/14/49/cat-2143332__340.jpg"
-  },
-  {
-    color: "lightblue",
-    day: false,
-    description: "this is the description",
-    flipped: true,
-    imgAltText: "this is the alt",
-    imgSrc: "https://cdn.pixabay.com/photo/2012/11/26/13/58/cat-67345__340.jpg"
-  },
-  {
-    color: "pink",
-    day: true,
-    description: "this is the description",
-    flipped: false,
-    imgAltText: "this is the alt",
-    imgSrc:
-      "https://cdn.pixabay.com/photo/2015/02/25/17/56/cat-649164_960_720.jpg"
-  }
-];
-
-function cards(state = initialCards, action: any) {
+function cards(state = initialCardsState, action: IToggleCardAction) {
   switch (action.type) {
-    case TOGGLE_CARD:
+    case APP_ACTION_TYPES.toggleCard:
       return state.map((card: any, index: number) => {
         return {
           ...card,
@@ -58,9 +25,12 @@ function cards(state = initialCards, action: any) {
   }
 }
 
-function activeCardIndex(state = 0, action: any) {
+function activeCardIndex(
+  state = initialActiveCardIndexState,
+  action: ISetActiveCardAction
+) {
   switch (action.type) {
-    case SET_ACTIVE_CARD:
+    case APP_ACTION_TYPES.setActiveCard:
       return action.index;
     default:
       return state;
@@ -68,11 +38,11 @@ function activeCardIndex(state = 0, action: any) {
 }
 
 function cardImageFilter(
-  state: string = CardImageFilters.SHOW_ALL,
-  action: any
+  state = initialCardImageFilterState,
+  action: ISetCardImageFilterAction
 ) {
   switch (action.type) {
-    case SET_CARD_IMAGE_FILTER:
+    case APP_ACTION_TYPES.setCardImageFilter:
       return action.filter;
     default:
       return state;

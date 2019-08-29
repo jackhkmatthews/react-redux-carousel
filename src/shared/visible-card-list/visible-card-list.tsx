@@ -1,22 +1,27 @@
 import { connect } from "react-redux";
 import { toggleCard } from "../../core/state/actions";
-import { ICard } from "../../core/state/reducers";
+import {
+  CARD_IMAGE_FILTERS,
+  CardImageFilter,
+  IAppState,
+  ICard
+} from "../../core/state/types";
 import CardList from "../card-list/card-list";
 
-const getVisibleCards = (cards: ICard[], filter: string) => {
+const getVisibleCards = (cards: ICard[], filter: CardImageFilter) => {
   switch (filter) {
-    case "SHOW_DAY":
+    case CARD_IMAGE_FILTERS.showDay:
       return cards.filter(card => card.day);
-    case "SHOW_NIGHT":
+    case CARD_IMAGE_FILTERS.showNight:
       return cards.filter(card => !card.day);
-    case "SHOW_ALL":
+    case CARD_IMAGE_FILTERS.showAll:
       return cards;
     default:
       return cards;
   }
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: IAppState) => {
   return {
     cards: getVisibleCards(state.cards, state.cardImageFilter)
   };
