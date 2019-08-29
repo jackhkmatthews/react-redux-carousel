@@ -8,6 +8,7 @@ import {
 
 export interface ICard {
   color: string;
+  day: boolean;
   description: string;
   flipped: boolean;
   imgAltText: string;
@@ -16,7 +17,8 @@ export interface ICard {
 
 export const initialCards: ICard[] = [
   {
-    color: "paleviolet",
+    color: "peachpuff",
+    day: true,
     description: "this is the description",
     flipped: false,
     imgAltText: "this is the alt",
@@ -25,6 +27,7 @@ export const initialCards: ICard[] = [
   },
   {
     color: "lightblue",
+    day: false,
     description: "this is the description",
     flipped: true,
     imgAltText: "this is the alt",
@@ -32,6 +35,7 @@ export const initialCards: ICard[] = [
   },
   {
     color: "pink",
+    day: true,
     description: "this is the description",
     flipped: false,
     imgAltText: "this is the alt",
@@ -46,7 +50,7 @@ function cards(state = initialCards, action: any) {
       return state.map((card: any, index: number) => {
         return {
           ...card,
-          fipped: index === action.index
+          flipped: index === action.index ? !card.flipped : card.flipped
         };
       });
     default:

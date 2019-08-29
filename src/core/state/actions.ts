@@ -5,9 +5,7 @@ export const SET_CARD_IMAGE_FILTER = "SET_HOLIDAY_FILTER";
 export const CardImageFilters = {
   SHOW_ALL: "SHOW_ALL",
   SHOW_DAY: "SHOW_DAY",
-  SHOW_LANDSCAPES: "SHOW_LANDSCAPES",
-  SHOW_NIGHT: "SHOW_NIGHT",
-  SHOW_PEOPLE: "SHOW_PEOPLE"
+  SHOW_NIGHT: "SHOW_NIGHT"
 };
 
 export function toggleCard(index: number) {

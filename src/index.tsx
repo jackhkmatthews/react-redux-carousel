@@ -1,26 +1,19 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import App from "./app";
-import {
-  CardImageFilters,
-  setCardImageFilter,
-  toggleCard
-} from "./core/state/actions";
+import React from "react";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
+import App from "./core/app";
 import { store } from "./core/state/store";
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
 
 // Log the initial state
 console.log(store.getState());
 
 // Every time the state changes, log it
 // Note that subscribe() returns a function for unregistering the listener
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
-
-// Dispatch some actions
-store.dispatch(toggleCard(0));
-store.dispatch(toggleCard(1));
-store.dispatch(setCardImageFilter(CardImageFilters.SHOW_PEOPLE));
-
-// Stop listening to state updates
-unsubscribe();
-
-ReactDOM.render(<App />, document.getElementById("root"));
+store.subscribe(() => console.log(store.getState()));

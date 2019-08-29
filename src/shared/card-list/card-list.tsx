@@ -1,18 +1,18 @@
 import * as React from "react";
 import { ICard } from "../../core/state/reducers";
 import Card from "../card/card";
-import { CardList, ListItem } from "./card-list.styles";
+import { CardListInner, ListItem } from "./card-list.styles";
 
 interface IProps {
   cards: ICard[];
-  onCardClick: (index: number) => void;
+  handleCardClick: (index: number) => void;
 }
 
-export default ({ cards, onCardClick }: IProps) => {
+export default function CardList({ cards, handleCardClick }: IProps) {
   const listItems = cards.map((card: ICard, index) => (
     <ListItem key={index}>
-      <Card {...card} onClick={() => onCardClick(index)} />
+      <Card {...card} onClick={() => handleCardClick(index)} />
     </ListItem>
   ));
-  return <CardList>{listItems}</CardList>;
-};
+  return <CardListInner>{listItems}</CardListInner>;
+}

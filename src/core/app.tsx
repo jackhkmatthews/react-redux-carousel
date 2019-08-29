@@ -1,7 +1,6 @@
 import * as React from "react";
-import { initialCards } from "./core/state/reducers";
-import Action from "./shared/action/action";
-import CardList from "./shared/card-list/card-list";
+import Action from "../shared/action/action";
+import VisibleCardList from "../shared/visible-card-list/visible-card-list";
 
 function App() {
   function handleClick() {
@@ -14,7 +13,7 @@ function App() {
       <Action onClick={handleClick}>Holiday</Action>
       <header></header>
       <main>
-        <CardList cards={initialCards} onCardClick={handleClick} />
+        <VisibleCardList />
       </main>
     </div>
   );

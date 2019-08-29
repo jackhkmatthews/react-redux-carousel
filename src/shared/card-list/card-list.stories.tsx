@@ -5,5 +5,5 @@ import { initialCards } from "../../core/state/reducers";
 import CardList from "./card-list";
 
 storiesOf("CardList", module).add("default", () => (
-  <CardList cards={initialCards} onCardClick={action("card-click")} />
+  <CardList cards={initialCards} handleCardClick={action("card-click")} />
 ));
