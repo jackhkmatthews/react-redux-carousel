@@ -1,5 +1,5 @@
 import * as React from "react";
-import { InnerAction } from "./action.styles";
+import * as S from "./action.styles";
 
 interface IProps {
   active: boolean;
@@ -9,8 +9,8 @@ interface IProps {
 
 export default function Action({ active, children, handleClick }: IProps) {
   return (
-    <InnerAction onClick={handleClick} disabled={active}>
+    <S.Action onClick={handleClick} disabled={active}>
       {children}
-    </InnerAction>
+    </S.Action>
   );
 }

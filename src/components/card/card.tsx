@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Back, Card, Front, Img, Inner } from "./card.styles";
+import * as S from "./card.styles";
 
 export interface IProps {
   color: string;
@@ -10,24 +10,24 @@ export interface IProps {
   onClick: () => void;
 }
 
-export default ({
+export default function Card({
   color,
   description,
   flipped,
   imgAltText,
   imgSrc,
   onClick
-}: IProps) => {
+}: IProps) {
   return (
-    <Card onClick={onClick} flipped={flipped}>
-      <Inner flipped={flipped}>
-        <Front flipped={flipped}>
-          <Img src={imgSrc} alt={imgAltText} />
-        </Front>
-        <Back bgColor={color}>
+    <S.Card onClick={onClick} flipped={flipped}>
+      <S.Inner flipped={flipped}>
+        <S.Front flipped={flipped}>
+          <S.Img src={imgSrc} alt={imgAltText} />
+        </S.Front>
+        <S.Back bgColor={color}>
           <p>{description}</p>
-        </Back>
-      </Inner>
-    </Card>
+        </S.Back>
+      </S.Inner>
+    </S.Card>
   );
-};
+}

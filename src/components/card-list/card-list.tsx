@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ICard } from "../../state/types";
 import Card from "../card/card";
-import { CardListInner, ListItem } from "./card-list.styles";
+import * as S from "./card-list.styles";
 
 interface IProps {
   cards: ICard[];
@@ -10,9 +10,9 @@ interface IProps {
 
 export default function CardList({ cards, handleCardClick }: IProps) {
   const listItems = cards.map((card: ICard, index) => (
-    <ListItem key={card.imgSrc}>
+    <S.ListItem key={card.imgSrc}>
       <Card {...card} onClick={() => handleCardClick(index)} />
-    </ListItem>
+    </S.ListItem>
   ));
-  return <CardListInner>{listItems}</CardListInner>;
+  return <S.CardList>{listItems}</S.CardList>;
 }
