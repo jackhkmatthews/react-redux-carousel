@@ -29,8 +29,8 @@ const mapStateToProps = (state: IAppState) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    handleCardClick: (index: number) => {
-      dispatch(toggleCard(index));
+    handleCardClick: (imgSrc: string) => {
+      dispatch(toggleCard(imgSrc));
     }
   };
 };

@@ -4,6 +4,7 @@ export const CardList = styled.ul`
   margin: auto;
   padding: 0;
   list-style: none;
+  display: flex;
 `;
 
 export const ListItem = styled.li`

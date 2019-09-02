@@ -6,9 +6,6 @@ import CardList from "../card-list/card-list";
 import ClickToScroll from "./click-to-scroll";
 
 const S = {
-  CardList: styled(CardList)`
-    display: flex;
-  `,
   ClickToScroll: styled(ClickToScroll)`
     width: 100%;
     border: 1px solid grey;
@@ -28,6 +25,6 @@ storiesOf("ClickToScroll", module)
   ))
   .add("card list", () => (
     <S.ClickToScroll>
-      <S.CardList cards={initialCardsState} handleCardClick={() => null} />
+      <CardList cards={initialCardsState} handleCardClick={() => null} />
     </S.ClickToScroll>
   ));

@@ -6,8 +6,8 @@ import {
   IToggleCardAction
 } from "./types";
 
-export function toggleCard(index: number): IToggleCardAction {
-  return { type: APP_ACTION_TYPES.toggleCard, index };
+export function toggleCard(imgSrc: string): IToggleCardAction {
+  return { type: APP_ACTION_TYPES.toggleCard, imgSrc };
 }
 
 export function setActiveCard(index: number): ISetActiveCardAction {

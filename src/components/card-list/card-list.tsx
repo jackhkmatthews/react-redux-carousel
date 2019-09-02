@@ -6,7 +6,7 @@ import * as S from "./card-list.styles";
 interface IProps {
   cards: ICard[];
   className?: string;
-  handleCardClick: (index: number) => void;
+  handleCardClick: (imgSrc: string) => void;
 }
 
 export default function CardList({
@@ -16,7 +16,7 @@ export default function CardList({
 }: IProps) {
   const listItems = cards.map((card: ICard, index) => (
     <S.ListItem key={card.imgSrc}>
-      <Card {...card} handleClick={() => handleCardClick(index)} />
+      <Card {...card} handleClick={() => handleCardClick(card.imgSrc)} />
     </S.ListItem>
   ));
   return <S.CardList className={className}>{listItems}</S.CardList>;

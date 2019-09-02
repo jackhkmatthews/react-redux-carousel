@@ -14,10 +14,10 @@ import {
 function cards(state = initialCardsState, action: IToggleCardAction) {
   switch (action.type) {
     case APP_ACTION_TYPES.toggleCard:
-      return state.map((card: any, index: number) => {
+      return state.map((card: any) => {
         return {
           ...card,
-          flipped: index === action.index ? !card.flipped : card.flipped
+          flipped: card.imgSrc === action.imgSrc ? !card.flipped : card.flipped
         };
       });
     default:

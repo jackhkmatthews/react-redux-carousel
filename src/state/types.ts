@@ -37,7 +37,7 @@ export type AppActionType =
 
 export interface IToggleCardAction {
   type: typeof APP_ACTION_TYPES.toggleCard;
-  index: number;
+  imgSrc: string;
 }
 
 export interface ISetActiveCardAction {
