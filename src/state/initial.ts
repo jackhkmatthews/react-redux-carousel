@@ -2,6 +2,7 @@ import { CARD_IMAGE_FILTERS, CardImageFilter, IAppState, ICard } from "./types";
 
 export const initialCardsState: ICard[] = [
   {
+    active: false,
     color: "peachpuff",
     description: "this is the description",
     flipped: false,
@@ -11,6 +12,7 @@ export const initialCardsState: ICard[] = [
     kind: false
   },
   {
+    active: false,
     color: "lightblue",
     description: "this is the description",
     flipped: true,
@@ -19,6 +21,7 @@ export const initialCardsState: ICard[] = [
     kind: false
   },
   {
+    active: false,
     color: "pink",
     description: "this is the description",
     flipped: false,
@@ -28,6 +31,7 @@ export const initialCardsState: ICard[] = [
     kind: true
   },
   {
+    active: false,
     color: "peachpuff",
     description: "this is the description",
     flipped: false,
@@ -37,6 +41,7 @@ export const initialCardsState: ICard[] = [
     kind: false
   },
   {
+    active: false,
     color: "lightblue",
     description: "this is the description",
     flipped: true,
@@ -46,6 +51,7 @@ export const initialCardsState: ICard[] = [
     kind: true
   },
   {
+    active: false,
     color: "pink",
     description: "this is the description",
     flipped: false,

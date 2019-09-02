@@ -1,4 +1,5 @@
 export interface ICard {
+  active: boolean;
   color: string;
   kind: boolean;
   description: string;

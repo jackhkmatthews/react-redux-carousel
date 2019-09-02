@@ -12,7 +12,10 @@ export default function ClickToScroll({ children, className }: IProps) {
 
   function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const offsetX = e.clientX - innerEl.current.getBoundingClientRect().left;
-    const scrollDist = offsetX - clickToScrollEl.current.clientWidth / 2;
+    const fromCentre =
+      e.nativeEvent.toElement.clientWidth / 2 - e.nativeEvent.offsetX;
+    const scrollDist =
+      offsetX - clickToScrollEl.current.clientWidth / 2 + fromCentre;
     clickToScrollEl.current.scrollTo({ left: scrollDist, behavior: "smooth" });
   }
 

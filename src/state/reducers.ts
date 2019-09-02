@@ -6,6 +6,7 @@ import {
 } from "./initial";
 import {
   APP_ACTION_TYPES,
+  ICard,
   ISetActiveCardAction,
   ISetCardImageFilterAction,
   IToggleCardAction
@@ -14,10 +15,11 @@ import {
 function cards(state = initialCardsState, action: IToggleCardAction) {
   switch (action.type) {
     case APP_ACTION_TYPES.toggleCard:
-      return state.map((card: any) => {
+      return state.map((card: ICard) => {
         return {
           ...card,
-          flipped: card.imgSrc === action.imgSrc ? !card.flipped : card.flipped
+          active: card.imgSrc === action.imgSrc ? true : false,
+          flipped: card.imgSrc === action.imgSrc && card.active ? true : false
         };
       });
     default:
