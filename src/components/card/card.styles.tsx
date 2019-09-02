@@ -12,8 +12,8 @@ export const Card = styled.div<IFlipProps>`
   display: inline-block;
   background-color: transparent;
   cursor: pointer;
-  height: 200px;
-  width: 200px;
+  height: 400px;
+  width: 400px;
   perspective: 1000px;
 `;
 
@@ -41,8 +41,8 @@ export const Front = styled.div<IFlipProps>`
 `;
 
 export const Img = styled.img`
-  height: 200px;
-  width: 200px;
+  height: 400px;
+  width: 400px;
   object-fit: cover;
 `;
 

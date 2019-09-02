@@ -7,16 +7,20 @@ export interface IProps {
 }
 
 export default function ClickToScroll({ children, className }: IProps) {
-  const outerEl = React.useRef(document.createElement("div"));
+  const clickToScrollEl = React.useRef(document.createElement("div"));
+  const innerEl = React.useRef(document.createElement("div"));
 
   function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    const scrollDist = e.nativeEvent.offsetX - outerEl.current.clientWidth / 2;
-    outerEl.current.scrollTo({ left: scrollDist, behavior: "smooth" });
+    const offsetX = e.clientX - innerEl.current.getBoundingClientRect().left;
+    const scrollDist = offsetX - clickToScrollEl.current.clientWidth / 2;
+    clickToScrollEl.current.scrollTo({ left: scrollDist, behavior: "smooth" });
   }
 
   return (
-    <S.ClickToScroll ref={outerEl} className={className}>
-      <S.Inner onClick={handleClick}>{children}</S.Inner>
+    <S.ClickToScroll ref={clickToScrollEl} className={className}>
+      <S.Inner ref={innerEl} onClick={handleClick}>
+        {children}
+      </S.Inner>
     </S.ClickToScroll>
   );
 }

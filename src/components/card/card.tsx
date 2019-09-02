@@ -7,7 +7,7 @@ export interface IProps {
   flipped: boolean;
   imgAltText: string;
   imgSrc: string;
-  onClick: () => void;
+  handleClick: () => void;
 }
 
 export default function Card({
@@ -16,10 +16,10 @@ export default function Card({
   flipped,
   imgAltText,
   imgSrc,
-  onClick
+  handleClick
 }: IProps) {
   return (
-    <S.Card onClick={onClick} flipped={flipped}>
+    <S.Card onClick={handleClick} flipped={flipped}>
       <S.Inner flipped={flipped}>
         <S.Front flipped={flipped}>
           <S.Img src={imgSrc} alt={imgAltText} />

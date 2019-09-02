@@ -5,14 +5,19 @@ import * as S from "./card-list.styles";
 
 interface IProps {
   cards: ICard[];
+  className?: string;
   handleCardClick: (index: number) => void;
 }
 
-export default function CardList({ cards, handleCardClick }: IProps) {
+export default function CardList({
+  cards,
+  handleCardClick,
+  className
+}: IProps) {
   const listItems = cards.map((card: ICard, index) => (
     <S.ListItem key={card.imgSrc}>
-      <Card {...card} onClick={() => handleCardClick(index)} />
+      <Card {...card} handleClick={() => handleCardClick(index)} />
     </S.ListItem>
   ));
-  return <S.CardList>{listItems}</S.CardList>;
+  return <S.CardList className={className}>{listItems}</S.CardList>;
 }

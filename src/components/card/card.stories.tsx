@@ -8,7 +8,7 @@ storiesOf("Card", module)
   .addDecorator(withKnobs)
   .add("default", () => (
     <Card
-      onClick={action("card-click")}
+      handleClick={action("card-click")}
       color="pink"
       description="this is the desc"
       flipped={boolean("flipped", false)}
