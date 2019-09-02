@@ -4,7 +4,7 @@ import Action from "./action";
 
 test("renders text", () => {
   const text = "Click me";
-  const handleClick = () => console.log("hi");
+  const handleClick = (): null => null;
   const { getByText } = render(
     <Action handleClick={handleClick} active={false}>
       {text}
