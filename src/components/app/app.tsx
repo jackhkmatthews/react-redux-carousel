@@ -14,11 +14,11 @@ function App() {
         <FilterAction filter={CARD_IMAGE_FILTERS.showAll}>
           Show All
         </FilterAction>
-        <FilterAction filter={CARD_IMAGE_FILTERS.showDay}>
-          Show Day
+        <FilterAction filter={CARD_IMAGE_FILTERS.showKind}>
+          Show Kind
         </FilterAction>
-        <FilterAction filter={CARD_IMAGE_FILTERS.showNight}>
-          Show Night
+        <FilterAction filter={CARD_IMAGE_FILTERS.showEvil}>
+          Show Evil
         </FilterAction>
       </nav>
       <main>

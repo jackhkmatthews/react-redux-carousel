@@ -10,10 +10,10 @@ import CardList from "../card-list/card-list";
 
 const getVisibleCards = (cards: ICard[], filter: CardImageFilter) => {
   switch (filter) {
-    case CARD_IMAGE_FILTERS.showDay:
-      return cards.filter(card => card.day);
-    case CARD_IMAGE_FILTERS.showNight:
-      return cards.filter(card => !card.day);
+    case CARD_IMAGE_FILTERS.showKind:
+      return cards.filter(card => card.kind);
+    case CARD_IMAGE_FILTERS.showEvil:
+      return cards.filter(card => !card.kind);
     case CARD_IMAGE_FILTERS.showAll:
       return cards;
     default:

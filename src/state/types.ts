@@ -1,6 +1,6 @@
 export interface ICard {
   color: string;
-  day: boolean;
+  kind: boolean;
   description: string;
   flipped: boolean;
   imgAltText: string;
@@ -9,14 +9,14 @@ export interface ICard {
 
 export enum CARD_IMAGE_FILTERS {
   showAll = "SHOW_ALL",
-  showDay = "SHOW_DAY",
-  showNight = "SHOW_NIGHT"
+  showKind = "SHOW_KIND",
+  showEvil = "SHOW_EVIL"
 }
 
 export type CardImageFilter =
   | CARD_IMAGE_FILTERS.showAll
-  | CARD_IMAGE_FILTERS.showDay
-  | CARD_IMAGE_FILTERS.showNight;
+  | CARD_IMAGE_FILTERS.showKind
+  | CARD_IMAGE_FILTERS.showEvil;
 
 export interface IAppState {
   cards: ICard[];
