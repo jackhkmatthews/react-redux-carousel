@@ -19,7 +19,8 @@ function cards(state = initialCardsState, action: IToggleCardAction) {
         return {
           ...card,
           active: card.imgSrc === action.imgSrc ? true : false,
-          flipped: card.imgSrc === action.imgSrc && card.active ? true : false
+          flipped:
+            card.imgSrc === action.imgSrc && card.active ? !card.flipped : false
         };
       });
     default:
