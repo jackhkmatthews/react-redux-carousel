@@ -1,8 +1,8 @@
 import * as React from "react";
 import { CARD_IMAGE_FILTERS } from "../../state/types";
 import FilterAction from "../filter-action/filter-action";
-import VisibleCardList from "../visible-card-list/visible-card-list";
-import * as S from "./app.styles";
+import ScrollToTransformBig from "../scroll-to-transform-big/scroll-to-transform-big.component";
+import ScrollToTransform from "../scroll-to-transform/scroll-to-transform.component";
 
 function App() {
   return (
@@ -22,9 +22,8 @@ function App() {
         </FilterAction>
       </nav>
       <main>
-        <S.StyledClickToScroll>
-          <VisibleCardList />
-        </S.StyledClickToScroll>
+        <ScrollToTransform />
+        <ScrollToTransformBig />
       </main>
     </div>
   );

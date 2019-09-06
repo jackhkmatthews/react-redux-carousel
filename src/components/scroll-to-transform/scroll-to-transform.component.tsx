@@ -12,10 +12,8 @@ import {
 export default function ScrollToTransform({
   className
 }: IScrollToTransformProps) {
-  const [scrollDirection, setScrollDirection] = React.useState(
-    ScrollDirections.none
-  );
-  const [deltaNumber, setDeltaNumber] = React.useState(0);
+  const [scrollDirection] = React.useState(ScrollDirections.none);
+  const [deltaNumber] = React.useState(0);
   const [translate, setTranslate] = React.useState(0);
 
   const outerRef = React.useRef(document.createElement("div"));
@@ -64,11 +62,10 @@ export default function ScrollToTransform({
         }}
       >
         <S.Title>
-          <span>Hahahah</span>
-          <span>ahahahah1ahahahahah</span>
-          <span>ahahah</span>
-          <span>ahaha</span>
-          <span>hahahahahahahahahahahahahahaahhaahahahahahahahaha</span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a lacinia
+          nibh. Sed semper eleifend leo a dictum. Phasellus blandit quam a
+          tortor lobortis, tempor volutpat mi vestibulum. Pellentesque congue
+          dignissim blandit
         </S.Title>
       </S.Inner>
     </S.Outer>
