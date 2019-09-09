@@ -3,14 +3,14 @@ import {
   getAverage,
   getNewScrollDirection,
   getNewTranslate
-} from "./scroll-to-transform-big.hooks";
-import * as S from "./scroll-to-transform-big.styles";
+} from "./horizontal-scroll.utils";
+import * as S from "./horizontal-scroll.styles";
 import {
   IScrollToTransformProps,
   ScrollDirections
-} from "./scroll-to-transform-big.types";
+} from "./horizontall-scrol.types";
 
-export default function ScrollToTransformBig({
+export default function HorizontalScroll({
   className
 }: IScrollToTransformProps) {
   const [scrollDirection, setScrollDirection] = React.useState(
@@ -19,16 +19,14 @@ export default function ScrollToTransformBig({
   const [deltaNumber, setDeltaNumber] = React.useState(0);
   const [translate, setTranslate] = React.useState(0);
 
-  // Use useRef for mutable variables that we want to persist
-  // without triggering a re-render on their change
-  const lastKnownDeltaYs = React.useRef([0]);
   const outerRef = React.useRef(document.createElement("div"));
-  const innerRef = React.useRef(document.createElement("div"));
   const outerWidth = React.useRef(0);
+  const innerRef = React.useRef(document.createElement("div"));
   const innerWidth = React.useRef(0);
   const maxTranslate = React.useRef(0);
-  const clientX = React.useRef(0);
+  const lastKnownDeltaYs = React.useRef([0]);
   const time = React.useRef(Date.now());
+  const clientX = React.useRef(0);
 
   React.useEffect(() => {
     outerWidth.current = outerRef.current.clientWidth;

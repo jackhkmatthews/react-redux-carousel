@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ScrollDirections } from "./scroll-to-transform-big.types";
+import { ScrollDirections } from "./horizontall-scrol.types";
 
 export const Outer = styled.div`
   display: flex;
