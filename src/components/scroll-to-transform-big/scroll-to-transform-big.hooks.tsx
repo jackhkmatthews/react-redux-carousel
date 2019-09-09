@@ -1,6 +1,8 @@
 import * as React from "react";
+import { ScrollDirections } from "../scroll-to-transform/scroll-to-transform.types";
+import { ScrollDirection } from "./scroll-to-transform-big.types";
 
-const getNewTranslate = (
+export const getNewTranslate = (
   currentTranslate: number,
   translateChange: number,
   maxTranslate: number,
@@ -15,7 +17,23 @@ const getNewTranslate = (
   }
 };
 
-const getAverage = (array: number[]) => {
+export const getNewScrollDirection = (
+  avgDeltaY: number,
+  scrollDirection: ScrollDirection
+): ScrollDirection => {
+  if (
+    (avgDeltaY > -1 && scrollDirection === ScrollDirections.down) ||
+    (avgDeltaY < 1 && scrollDirection === ScrollDirections.up)
+  ) {
+    return scrollDirection;
+  } else if (avgDeltaY > 0) {
+    return ScrollDirections.down;
+  } else {
+    return ScrollDirections.up;
+  }
+};
+
+export const getAverage = (array: number[]) => {
   return (
     array.reduce((previous, current) => (current += previous)) / array.length
   );

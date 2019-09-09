@@ -1,4 +1,9 @@
 import * as React from "react";
+import {
+  getAverage,
+  getNewScrollDirection,
+  getNewTranslate
+} from "./scroll-to-transform-big.hooks";
 import * as S from "./scroll-to-transform-big.styles";
 import {
   IScrollToTransformProps,
@@ -16,100 +21,54 @@ export default function ScrollToTransformBig({
 
   // Use useRef for mutable variables that we want to persist
   // without triggering a re-render on their change
-  const wheelRequestRef = React.useRef(0);
-  const clickRequestRef = React.useRef(0);
   const lastKnownDeltaYs = React.useRef([0]);
-  const wheelTicking = React.useRef(false);
-  const clickTicking = React.useRef(false);
   const outerRef = React.useRef(document.createElement("div"));
   const innerRef = React.useRef(document.createElement("div"));
   const outerWidth = React.useRef(0);
   const innerWidth = React.useRef(0);
   const maxTranslate = React.useRef(0);
   const clientX = React.useRef(0);
+  const time = React.useRef(Date.now());
 
   React.useEffect(() => {
     outerWidth.current = outerRef.current.clientWidth;
     innerWidth.current = innerRef.current.clientWidth;
     maxTranslate.current = innerWidth.current - outerWidth.current;
-    return () => {
-      cancelAnimationFrame(clickRequestRef.current);
-      cancelAnimationFrame(wheelRequestRef.current);
-    };
   }, []); // Make sure the effect runs only once
 
   const handleWheel = (e: React.WheelEvent) => {
     lastKnownDeltaYs.current.push(e.deltaY);
-    requestWheelTick();
-  };
-
-  const requestWheelTick = () => {
-    if (!wheelTicking.current) {
-      wheelRequestRef.current = requestAnimationFrame(wheelUpdate);
+    if (time.current + 100 - Date.now() < 0) {
+      time.current = Date.now();
+      wheelUpdate();
     }
-    wheelTicking.current = true;
   };
 
   const wheelUpdate = () => {
-    wheelTicking.current = false;
     const avgDeltaY = getAverage(lastKnownDeltaYs.current);
     const translateChange =
       avgDeltaY * 0.05 * 0.01 * innerRef.current.clientWidth;
     lastKnownDeltaYs.current = [0];
     setDeltaNumber(avgDeltaY);
-    updateTranslate(translateChange);
-    updateScrollDirection(avgDeltaY);
-  };
-
-  const getAverage = (array: number[]) => {
-    return (
-      array.reduce((previous, current) => (current += previous)) /
-      lastKnownDeltaYs.current.length
+    setTranslate(
+      getNewTranslate(translate, translateChange, maxTranslate.current)
     );
-  };
-
-  const updateTranslate = (translateChange: number): void => {
-    if (translate + translateChange > maxTranslate.current) {
-      setTranslate(maxTranslate.current);
-    } else if (translate + translateChange < 0) {
-      setTranslate(0);
-    } else {
-      setTranslate(translate + translateChange);
-    }
-  };
-
-  const updateScrollDirection = (avgDeltaY: number): void => {
-    if (
-      (avgDeltaY > -1 && scrollDirection === ScrollDirections.down) ||
-      (avgDeltaY < 1 && scrollDirection === ScrollDirections.up)
-    ) {
-      return;
-    } else if (avgDeltaY > 0) {
-      setScrollDirection(ScrollDirections.down);
-    } else {
-      setScrollDirection(ScrollDirections.up);
-    }
+    setScrollDirection(getNewScrollDirection(avgDeltaY, scrollDirection));
   };
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     clientX.current = e.clientX;
-    requestClickTick();
-  };
-
-  const requestClickTick = () => {
-    if (!clickTicking.current) {
-      clickRequestRef.current = requestAnimationFrame(clickUpdate);
-    }
-    clickTicking.current = true;
+    clickUpdate();
   };
 
   const clickUpdate = () => {
-    clickTicking.current = false;
     const offsetX =
       clientX.current - innerRef.current.getBoundingClientRect().left;
     const newTranslate = offsetX - outerWidth.current / 2;
     const translateChange = newTranslate - translate;
-    updateTranslate(translateChange);
+    setTranslate(
+      getNewTranslate(translate, translateChange, maxTranslate.current)
+    );
   };
 
   return (
