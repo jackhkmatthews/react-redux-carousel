@@ -4,7 +4,7 @@ export const CardList = styled.ul`
   margin: auto;
   padding: 0;
   list-style: none;
-  display: flex;
+  display: inline-flex;
 `;
 
 export const ListItem = styled.li`
@@ -12,5 +12,7 @@ export const ListItem = styled.li`
   padding: 0;
   list-style: none;
   line-height: 0;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  margin: 10px;
 `;
