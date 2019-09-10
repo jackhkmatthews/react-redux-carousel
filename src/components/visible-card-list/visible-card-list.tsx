@@ -1,19 +1,25 @@
 import { connect } from "react-redux";
-import { toggleCard } from "../../state/actions";
 import {
   CARD_IMAGE_FILTERS,
   CardImageFilter,
   IAppState,
-  ICard
+  ICard,
+  LOCATIONS
 } from "../../state/types";
 import CardList from "../card-list/card-list";
 
 const getVisibleCards = (cards: ICard[], filter: CardImageFilter) => {
   switch (filter) {
-    case CARD_IMAGE_FILTERS.showKind:
-      return cards.filter(card => card.kind);
-    case CARD_IMAGE_FILTERS.showEvil:
-      return cards.filter(card => !card.kind);
+    case CARD_IMAGE_FILTERS.showCanary:
+      return cards.filter(card => card.location === LOCATIONS.canary);
+    case CARD_IMAGE_FILTERS.showGuatemala:
+      return cards.filter(card => card.location === LOCATIONS.guatemala);
+    case CARD_IMAGE_FILTERS.showPanama:
+      return cards.filter(card => card.location === LOCATIONS.panama);
+    case CARD_IMAGE_FILTERS.showWales:
+      return cards.filter(card => card.location === LOCATIONS.wales);
+    case CARD_IMAGE_FILTERS.showWorcester:
+      return cards.filter(card => card.location === LOCATIONS.worchester);
     case CARD_IMAGE_FILTERS.showAll:
       return cards;
     default:
@@ -27,17 +33,6 @@ const mapStateToProps = (state: IAppState) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    handleCardClick: (imgSrc: string) => {
-      dispatch(toggleCard(imgSrc));
-    }
-  };
-};
-
-const VisibleCardList = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CardList);
+const VisibleCardList = connect(mapStateToProps)(CardList);
 
 export default VisibleCardList;
