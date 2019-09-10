@@ -7,13 +7,8 @@ import {
   ISetCardImageFilterAction,
   ISetDetailAction,
   ISetNavXTranslateAction,
-  IToggleCardAction,
   NavXTranslate
 } from "./types";
-
-export function toggleCard(imgSrc: string): IToggleCardAction {
-  return { type: APP_ACTION_TYPES.toggleCard, imgSrc };
-}
 
 export function setActiveCard(imgSrc: ActiveCardImgSrc): ISetActiveCardAction {
   return { type: APP_ACTION_TYPES.setActiveCard, imgSrc };

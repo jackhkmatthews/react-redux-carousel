@@ -8,28 +8,14 @@ import {
 } from "./initial";
 import {
   APP_ACTION_TYPES,
-  ICard,
   ISetActiveCardAction,
   ISetCardImageFilterAction,
   ISetDetailAction,
-  ISetNavXTranslateAction,
-  IToggleCardAction
+  ISetNavXTranslateAction
 } from "./types";
 
-function cards(state = initialCardsState, action: IToggleCardAction) {
-  switch (action.type) {
-    case APP_ACTION_TYPES.toggleCard:
-      return state.map((card: ICard) => {
-        return {
-          ...card,
-          active: card.imgSrc === action.imgSrc ? true : false,
-          flipped:
-            card.imgSrc === action.imgSrc && card.active ? !card.flipped : false
-        };
-      });
-    default:
-      return state;
-  }
+function cards(state = initialCardsState) {
+  return state;
 }
 
 function activeCardImgSrc(

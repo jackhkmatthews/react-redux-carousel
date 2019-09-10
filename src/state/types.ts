@@ -1,28 +1,41 @@
+export enum LOCATIONS {
+  canary = "CANARY",
+  guatemala = "GUATEMALA",
+  panama = "PANAMA",
+  wales = "WALES",
+  worchester = "WORCHESTER"
+}
+
+export type Location =
+  | LOCATIONS.canary
+  | LOCATIONS.guatemala
+  | LOCATIONS.panama
+  | LOCATIONS.wales
+  | LOCATIONS.worchester;
+
 export interface ICard {
   active: boolean;
   color: string;
-  kind: boolean;
-  description: string;
-  flipped: boolean;
+  location: Location;
   imgAltText: string;
   imgSrc: string;
 }
 
 export enum CARD_IMAGE_FILTERS {
   showAll = "SHOW_ALL",
-  showKind = "SHOW_KIND",
-  showEvil = "SHOW_EVIL",
-  showWales = "SHOW_WALES",
   showCanary = "SHOW_CANARY",
+  showGuatemala = "SHOW_GUATEMALA",
+  showPanama = "SHOW_PANAMA",
+  showWales = "SHOW_WALES",
   showWorcester = "SHOW_WORCHESTER"
 }
 
 export type CardImageFilter =
   | CARD_IMAGE_FILTERS.showAll
-  | CARD_IMAGE_FILTERS.showKind
-  | CARD_IMAGE_FILTERS.showEvil
-  | CARD_IMAGE_FILTERS.showWales
   | CARD_IMAGE_FILTERS.showCanary
+  | CARD_IMAGE_FILTERS.showGuatemala
+  | CARD_IMAGE_FILTERS.showPanama
+  | CARD_IMAGE_FILTERS.showWales
   | CARD_IMAGE_FILTERS.showWorcester;
 
 export type ActiveCardImgSrc = null | string;
@@ -40,7 +53,6 @@ export interface IAppState {
 }
 
 export enum APP_ACTION_TYPES {
-  toggleCard = "TOGGLE_CARD",
   setActiveCard = "SET_ACTIVE_CARD",
   setCardImageFilter = "SET_CARD_IMAGE_FILTER",
   setNavXTranslate = "SET_NAV_X_TRANSLATE",
@@ -48,16 +60,10 @@ export enum APP_ACTION_TYPES {
 }
 
 export type AppActionType =
-  | APP_ACTION_TYPES.toggleCard
   | APP_ACTION_TYPES.setActiveCard
   | APP_ACTION_TYPES.setCardImageFilter
   | APP_ACTION_TYPES.setNavXTranslate
   | APP_ACTION_TYPES.setDetail;
-
-export interface IToggleCardAction {
-  type: typeof APP_ACTION_TYPES.toggleCard;
-  imgSrc: string;
-}
 
 export interface ISetActiveCardAction {
   type: typeof APP_ACTION_TYPES.setActiveCard;
@@ -80,7 +86,6 @@ export interface ISetDetailAction {
 }
 
 export type AppAction =
-  | IToggleCardAction
   | ISetActiveCardAction
   | ISetNavXTranslateAction
   | ISetDetailAction
