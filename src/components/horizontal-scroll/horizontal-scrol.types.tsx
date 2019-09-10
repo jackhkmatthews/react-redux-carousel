@@ -9,6 +9,7 @@ export type ScrollDirection =
   | ScrollDirections.down
   | ScrollDirections.none;
 
-export interface IScrollToTransformProps {
+export interface IHorizontalScrollProps {
   className?: string;
+  children?: any;
 }

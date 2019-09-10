@@ -1,18 +1,19 @@
 import * as React from "react";
 import {
+  IHorizontalScrollProps,
+  ScrollDirections
+} from "./horizontal-scrol.types";
+import * as S from "./horizontal-scroll.styles";
+import {
   getAverage,
   getNewScrollDirection,
   getNewTranslate
 } from "./horizontal-scroll.utils";
-import * as S from "./horizontal-scroll.styles";
-import {
-  IScrollToTransformProps,
-  ScrollDirections
-} from "./horizontall-scrol.types";
 
 export default function HorizontalScroll({
-  className
-}: IScrollToTransformProps) {
+  className,
+  children
+}: IHorizontalScrollProps) {
   const [scrollDirection, setScrollDirection] = React.useState(
     ScrollDirections.none
   );
@@ -55,6 +56,7 @@ export default function HorizontalScroll({
   };
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    console.log(e.nativeEvent);
     clientX.current = e.clientX;
     clickUpdate();
   };
@@ -84,15 +86,10 @@ export default function HorizontalScroll({
         onClick={handleClick}
         ref={innerRef}
         style={{
-          transform: `translateX(-${translate}px)`
+          transform: `translate3d(-${translate}px, 0, 0)`
         }}
       >
-        <S.Title>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a lacinia
-          nibh. Sed semper eleifend leo a dictum. Phasellus blandit quam a
-          tortor lobortis, tempor volutpat mi vestibulum. Pellentesque congue
-          dignissim blandit
-        </S.Title>
+        {children}
       </S.Inner>
     </S.Outer>
   );

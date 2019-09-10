@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { ScrollDirections } from "./horizontall-scrol.types";
+import { ScrollDirections } from "./horizontal-scrol.types";
 
 export const Outer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
+  width: 500px;
 `;
 
 export const Meta = styled.div`
@@ -16,7 +17,7 @@ export const Meta = styled.div`
 
 export const Inner = styled.div`
   display: inline-block;
-  transition: transform 0.5s ease-out;
+  transition: transform 0.3s ease-out;
 `;
 
 export const Scroll = styled.h3`
@@ -40,19 +41,6 @@ export const Delta = styled.h3`
   font-size: 20px;
   top: 0;
   left: 0;
-  ${Outer}[data-scroll="${ScrollDirections.up}"] & {
-    color: firebrick;
-  }
-  ${Outer}[data-scroll="${ScrollDirections.down}"] & {
-    color: cornflowerblue;
-  }
-  transition: all 2s ease;
-`;
-
-export const Title = styled.h1`
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 120px;
-  white-space: nowrap;
   ${Outer}[data-scroll="${ScrollDirections.up}"] & {
     color: firebrick;
   }
