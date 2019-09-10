@@ -16,7 +16,7 @@ export default function CardList({
 }: IProps) {
   const listItems = cards.map((card: ICard, index) => (
     <S.ListItem key={card.imgSrc}>
-      <Card {...card} handleClick={() => handleCardClick(card.imgSrc)} />
+      <Card {...card} />
     </S.ListItem>
   ));
   return <S.CardList className={className}>{listItems}</S.CardList>;

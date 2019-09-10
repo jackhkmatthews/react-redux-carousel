@@ -2,32 +2,21 @@ import * as React from "react";
 import * as S from "./card.styles";
 
 export interface IProps {
-  color: string;
-  description: string;
-  flipped: boolean;
   imgAltText: string;
   imgSrc: string;
-  handleClick: () => void;
+  hide?: boolean;
+  large?: boolean;
 }
 
 export default function Card({
-  color,
-  description,
-  flipped,
   imgAltText,
   imgSrc,
-  handleClick
+  hide = false,
+  large = false
 }: IProps) {
   return (
-    <S.Card onClick={handleClick} flipped={flipped}>
-      <S.Inner flipped={flipped}>
-        <S.Front flipped={flipped}>
-          <S.Img src={imgSrc} alt={imgAltText} />
-        </S.Front>
-        <S.Back bgColor={color}>
-          <p>{description}</p>
-        </S.Back>
-      </S.Inner>
+    <S.Card hide={hide} large={large}>
+      <S.Img src={imgSrc} alt={imgAltText} />
     </S.Card>
   );
 }
