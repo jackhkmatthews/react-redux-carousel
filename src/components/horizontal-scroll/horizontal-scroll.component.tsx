@@ -1,23 +1,12 @@
 import * as React from "react";
-import {
-  IHorizontalScrollProps,
-  ScrollDirections
-} from "./horizontal-scrol.types";
+import { IHorizontalScrollProps } from "./horizontal-scrol.types";
 import * as S from "./horizontal-scroll.styles";
-import {
-  getAverage,
-  getNewScrollDirection,
-  getNewTranslate
-} from "./horizontal-scroll.utils";
+import { getAverage, getNewTranslate } from "./horizontal-scroll.utils";
 
 export default function HorizontalScroll({
   className,
   children
 }: IHorizontalScrollProps) {
-  const [scrollDirection, setScrollDirection] = React.useState(
-    ScrollDirections.none
-  );
-  const [deltaNumber, setDeltaNumber] = React.useState(0);
   const [translate, setTranslate] = React.useState(0);
 
   const outerRef = React.useRef(document.createElement("div"));
@@ -46,17 +35,14 @@ export default function HorizontalScroll({
   const wheelUpdate = () => {
     const avgDeltaY = getAverage(lastKnownDeltaYs.current);
     const translateChange =
-      avgDeltaY * 0.05 * 0.01 * innerRef.current.clientWidth;
+      avgDeltaY * 0.1 * 0.01 * innerRef.current.clientWidth;
     lastKnownDeltaYs.current = [0];
-    setDeltaNumber(avgDeltaY);
     setTranslate(
       getNewTranslate(translate, translateChange, maxTranslate.current)
     );
-    setScrollDirection(getNewScrollDirection(avgDeltaY, scrollDirection));
   };
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    console.log(e.nativeEvent);
     clientX.current = e.clientX;
     clickUpdate();
   };
@@ -75,13 +61,8 @@ export default function HorizontalScroll({
     <S.Outer
       onWheel={handleWheel}
       className={className ? className : ""}
-      data-scroll={scrollDirection}
       ref={outerRef}
     >
-      <S.Meta>
-        <S.Scroll>Scrolling: {scrollDirection}</S.Scroll>
-        <S.Delta>Delta: {deltaNumber}</S.Delta>
-      </S.Meta>
       <S.Inner
         onClick={handleClick}
         ref={innerRef}
