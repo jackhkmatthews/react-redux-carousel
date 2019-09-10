@@ -1,4 +1,12 @@
-import { CARD_IMAGE_FILTERS, CardImageFilter, IAppState, ICard } from "./types";
+import {
+  ActiveCardImgSrc,
+  CARD_IMAGE_FILTERS,
+  CardImageFilter,
+  Detail,
+  IAppState,
+  ICard,
+  NavXTranslate
+} from "./types";
 
 export const initialCardsState: ICard[] = [
   {
@@ -125,10 +133,16 @@ export const initialCardsState: ICard[] = [
 export const initialCardImageFilterState: CardImageFilter =
   CARD_IMAGE_FILTERS.showAll;
 
-export const initialActiveCardIndexState: number = 0;
+export const initialActiveCardImgSrcState: ActiveCardImgSrc = null;
+
+export const initialNavXTranslateState: NavXTranslate = 0;
+
+export const initialDetailState: Detail = false;
 
 export const initialAppState: IAppState = {
-  activeCardIndex: initialActiveCardIndexState,
+  activeCardImgSrc: initialActiveCardImgSrcState,
   cardImageFilter: initialCardImageFilterState,
-  cards: initialCardsState
+  cards: initialCardsState,
+  detail: initialDetailState,
+  navXTranslate: initialNavXTranslateState
 };

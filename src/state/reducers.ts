@@ -1,14 +1,18 @@
 import { combineReducers } from "redux";
 import {
-  initialActiveCardIndexState,
+  initialActiveCardImgSrcState,
   initialCardImageFilterState,
-  initialCardsState
+  initialCardsState,
+  initialDetailState,
+  initialNavXTranslateState
 } from "./initial";
 import {
   APP_ACTION_TYPES,
   ICard,
   ISetActiveCardAction,
   ISetCardImageFilterAction,
+  ISetDetailAction,
+  ISetNavXTranslateAction,
   IToggleCardAction
 } from "./types";
 
@@ -28,13 +32,13 @@ function cards(state = initialCardsState, action: IToggleCardAction) {
   }
 }
 
-function activeCardIndex(
-  state = initialActiveCardIndexState,
+function activeCardImgSrc(
+  state = initialActiveCardImgSrcState,
   action: ISetActiveCardAction
 ) {
   switch (action.type) {
     case APP_ACTION_TYPES.setActiveCard:
-      return action.index;
+      return action.imgSrc;
     default:
       return state;
   }
@@ -52,8 +56,31 @@ function cardImageFilter(
   }
 }
 
+function navXTranslate(
+  state = initialNavXTranslateState,
+  action: ISetNavXTranslateAction
+) {
+  switch (action.type) {
+    case APP_ACTION_TYPES.setNavXTranslate:
+      return action.xTranslate;
+    default:
+      return state;
+  }
+}
+
+function detail(state = initialDetailState, action: ISetDetailAction) {
+  switch (action.type) {
+    case APP_ACTION_TYPES.setDetail:
+      return action.detail;
+    default:
+      return state;
+  }
+}
+
 export const carouselApp = combineReducers({
-  activeCardIndex,
+  activeCardImgSrc,
   cardImageFilter,
-  cards
+  cards,
+  detail,
+  navXTranslate
 });
