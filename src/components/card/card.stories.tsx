@@ -1,4 +1,4 @@
-import { boolean, select, withKnobs } from "@storybook/addon-knobs";
+import { select, withKnobs } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import Card from "./card";
@@ -20,8 +20,6 @@ storiesOf("Card", module)
       <Card
         imgAltText="this is alt"
         imgSrc={select(label, options, defaultValue)}
-        hide={boolean("hide", false)}
-        large={boolean("large", false)}
       />
     </>
   ));
