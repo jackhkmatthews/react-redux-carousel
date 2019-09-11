@@ -1,5 +1,5 @@
 import { ScrollDirections } from "../scroll-to-transform/scroll-to-transform.types";
-import { ScrollDirection } from "./horizontal-scrol.types";
+import { ScrollDirection } from "./horizontal-scroll.types";
 
 export const getNewTranslate = (
   currentTranslate: number,
