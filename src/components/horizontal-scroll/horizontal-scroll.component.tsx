@@ -36,7 +36,7 @@ export default function HorizontalScroll({
   };
 
   return (
-    <S.Outer
+    <S.HorizontalScroll
       onWheel={handleWheel}
       className={className ? className : ""}
       ref={outerRef}
@@ -50,6 +50,6 @@ export default function HorizontalScroll({
       >
         {children}
       </S.Inner>
-    </S.Outer>
+    </S.HorizontalScroll>
   );
 }

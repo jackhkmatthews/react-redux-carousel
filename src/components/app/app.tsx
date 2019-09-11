@@ -3,10 +3,11 @@ import { CARD_IMAGE_FILTERS } from "../../state/types";
 import FilterAction from "../filter-action/filter-action";
 import HorizontalScroll from "../horizontal-scroll/horizontal-scroll.component";
 import VisibleCardList from "../visible-card-list/visible-card-list";
+import * as S from "./app.styles";
 
-function App() {
+export default function App() {
   return (
-    <div>
+    <S.App>
       <nav>
         <FilterAction filter={CARD_IMAGE_FILTERS.showAll}>
           Show All
@@ -32,8 +33,6 @@ function App() {
           <VisibleCardList />
         </HorizontalScroll>
       </main>
-    </div>
+    </S.App>
   );
 }
-
-export default App;

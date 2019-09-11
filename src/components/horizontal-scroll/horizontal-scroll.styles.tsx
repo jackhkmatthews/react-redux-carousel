@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Outer = styled.div`
+export const HorizontalScroll = styled.div`
   display: flex;
   align-items: center;
   position: relative;
