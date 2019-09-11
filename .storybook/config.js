@@ -1,4 +1,5 @@
-import { configure } from "@storybook/react";
+import { configure, addDecorator } from "@storybook/react";
+import { withProvider } from "./decorators";
 
 const req = require.context("../src", true, /\.stories\.tsx$/);
 
@@ -7,3 +8,5 @@ function loadStories() {
 }
 
 configure(loadStories, module);
+
+addDecorator(withProvider);
