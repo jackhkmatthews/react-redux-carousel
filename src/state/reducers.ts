@@ -4,6 +4,7 @@ import {
   initialCardImageFilterState,
   initialCardsState,
   initialDetailState,
+  initialNavBackgroundState,
   initialNavXTranslateState
 } from "./initial";
 import {
@@ -11,6 +12,7 @@ import {
   ISetActiveCardAction,
   ISetCardImageFilterAction,
   ISetDetailAction,
+  ISetNavBackgroundColor,
   ISetNavXTranslateAction
 } from "./types";
 
@@ -63,10 +65,23 @@ function detail(state = initialDetailState, action: ISetDetailAction) {
   }
 }
 
+function navBackgroundColor(
+  state = initialNavBackgroundState,
+  action: ISetNavBackgroundColor
+) {
+  switch (action.type) {
+    case APP_ACTION_TYPES.setNavBackgroundColor:
+      return action.color;
+    default:
+      return state;
+  }
+}
+
 export const carouselApp = combineReducers({
   activeCardImgSrc,
   cardImageFilter,
   cards,
   detail,
+  navBackgroundColor,
   navXTranslate
 });

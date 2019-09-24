@@ -6,7 +6,9 @@ import {
   ISetActiveCardAction,
   ISetCardImageFilterAction,
   ISetDetailAction,
+  ISetNavBackgroundColor,
   ISetNavXTranslateAction,
+  NavBackgroundColor,
   NavXTranslate
 } from "./types";
 
@@ -28,4 +30,10 @@ export function setNavXTranslate(
 
 export function setDetail(detail: Detail): ISetDetailAction {
   return { type: APP_ACTION_TYPES.setDetail, detail };
+}
+
+export function setNavBackgroundColor(
+  color: NavBackgroundColor
+): ISetNavBackgroundColor {
+  return { type: APP_ACTION_TYPES.setNavBackgroundColor, color };
 }

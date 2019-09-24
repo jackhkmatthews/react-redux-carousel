@@ -40,6 +40,8 @@ export type CardImageFilter =
 
 export type ActiveCardImgSrc = null | string;
 
+export type NavBackgroundColor = null | string;
+
 export type NavXTranslate = number;
 
 export type Detail = boolean;
@@ -48,6 +50,7 @@ export interface IAppState {
   cards: ICard[];
   cardImageFilter: CardImageFilter;
   activeCardImgSrc: ActiveCardImgSrc;
+  navBackgroundColor: NavBackgroundColor;
   navXTranslate: NavXTranslate;
   detail: Detail;
 }
@@ -55,6 +58,7 @@ export interface IAppState {
 export enum APP_ACTION_TYPES {
   setActiveCard = "SET_ACTIVE_CARD",
   setCardImageFilter = "SET_CARD_IMAGE_FILTER",
+  setNavBackgroundColor = "SET_NAV_BACKGROUND_COLOR",
   setNavXTranslate = "SET_NAV_X_TRANSLATE",
   setDetail = "SET_DETAIL"
 }
@@ -63,7 +67,8 @@ export type AppActionType =
   | APP_ACTION_TYPES.setActiveCard
   | APP_ACTION_TYPES.setCardImageFilter
   | APP_ACTION_TYPES.setNavXTranslate
-  | APP_ACTION_TYPES.setDetail;
+  | APP_ACTION_TYPES.setDetail
+  | APP_ACTION_TYPES.setNavBackgroundColor;
 
 export interface ISetActiveCardAction {
   type: typeof APP_ACTION_TYPES.setActiveCard;
@@ -85,8 +90,14 @@ export interface ISetDetailAction {
   detail: Detail;
 }
 
+export interface ISetNavBackgroundColor {
+  type: typeof APP_ACTION_TYPES.setNavBackgroundColor;
+  color: NavBackgroundColor;
+}
+
 export type AppAction =
   | ISetActiveCardAction
   | ISetNavXTranslateAction
   | ISetDetailAction
+  | ISetNavBackgroundColor
   | ISetCardImageFilterAction;
