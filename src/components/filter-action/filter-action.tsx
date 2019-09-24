@@ -1,5 +1,10 @@
 import { connect } from "react-redux";
-import { setCardImageFilter } from "../../state/actions";
+import {
+  setActiveCard,
+  setCardImageFilter,
+  setDetail,
+  setNavXTranslate
+} from "../../state/actions";
 import { CardImageFilter, IAppState } from "../../state/types";
 import Action from "../action/action";
 
@@ -12,7 +17,12 @@ const mapStateToProps = (state: IAppState, ownProps: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
-  handleClick: () => dispatch(setCardImageFilter(ownProps.filter))
+  handleClick: () => {
+    dispatch(setCardImageFilter(ownProps.filter));
+    dispatch(setNavXTranslate(0));
+    dispatch(setActiveCard(null));
+    dispatch(setDetail(false));
+  }
 });
 
 const FilterAction = connect<any, any, any>(
