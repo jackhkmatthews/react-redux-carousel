@@ -5,12 +5,13 @@ export const CardList = styled.ul`
   padding: 0;
   list-style: none;
   display: inline-flex;
-  align-items: flex-start;
+  align-items: center;
+  padding: 100px 0 100px 0;
+  height: 420px;
 `;
 
 export const ListItem = styled.li`
   margin: 0;
-  padding: 0 0 200px 0;
   list-style: none;
   line-height: 0;
   display: inline-flex;

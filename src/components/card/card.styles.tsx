@@ -12,7 +12,7 @@ export const Card = styled.div<IProps>`
     props.large ? "scale3d(1.5, 1.5, 1)" : "scale3d(1, 1, 1)"};
   z-index: ${props => (props.large ? 1 : 0)};
   opacity: ${props => (props.hide ? "0" : "1")};
-  transform-origin: center top;
+  transform-origin: center;
   ${props =>
     props.large
       ? css`

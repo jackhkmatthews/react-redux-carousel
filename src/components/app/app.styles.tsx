@@ -20,7 +20,7 @@ export const StyledHorizontalScroll = styled(HorizontalScroll)<IProps>`
     width: 100%;
     position: absolute;
     border: 1px solid black;
-    top: 0;
+    top: 100px;
     left: 0;
     box-sizing: border-box;
     background-color: ${props => (props.bgColor ? props.bgColor : "")};
