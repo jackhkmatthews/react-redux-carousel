@@ -1,9 +1,14 @@
 import styled from "styled-components";
+import { NavBackgroundColor } from "../../state/types";
 import HorizontalScroll from "../horizontal-scroll/horizontal-scroll.component";
+
+interface IProps {
+  bgColor: NavBackgroundColor;
+}
 
 export const App = styled.div``;
 
-export const StyledHorizontalScroll = styled(HorizontalScroll)`
+export const StyledHorizontalScroll = styled(HorizontalScroll)<IProps>`
   width: 80vw;
   margin: 0 auto;
   max-width: 1500px;
@@ -18,6 +23,8 @@ export const StyledHorizontalScroll = styled(HorizontalScroll)`
     top: 0;
     left: 0;
     box-sizing: border-box;
+    background-color: ${props => (props.bgColor ? props.bgColor : "")};
+    transition: background-color 1.5s ease;
   }
 `;
 

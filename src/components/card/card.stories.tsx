@@ -20,6 +20,7 @@ storiesOf("Card", module)
       <Card
         imgAltText="this is alt"
         imgSrc={select(label, options, defaultValue)}
+        color="pink"
       />
     </>
   ));

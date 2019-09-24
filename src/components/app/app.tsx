@@ -1,10 +1,13 @@
 import * as React from "react";
+import { useSelector } from "react-redux";
+import { selectNavBackgroundColor } from "../../state/selectors";
 import { CARD_IMAGE_FILTERS } from "../../state/types";
 import FilterAction from "../filter-action/filter-action";
 import VisibleCardList from "../visible-card-list/visible-card-list";
 import * as S from "./app.styles";
 
 export default function App() {
+  const navBackgroundColor = useSelector(selectNavBackgroundColor);
   return (
     <S.App>
       <S.Nav>
@@ -28,7 +31,7 @@ export default function App() {
         </FilterAction>
       </S.Nav>
       <main>
-        <S.StyledHorizontalScroll>
+        <S.StyledHorizontalScroll bgColor={navBackgroundColor}>
           <VisibleCardList />
         </S.StyledHorizontalScroll>
       </main>
