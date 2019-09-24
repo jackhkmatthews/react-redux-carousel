@@ -20,12 +20,16 @@ export const useWheelToTranslate = (
     const translateChange =
       avgDeltaY * 0.1 * 0.01 * innerRef.current.clientWidth * -1;
     lastKnownDeltaYs.current = [0];
-    const minTranslate =
-      outerRef.current.clientWidth - innerRef.current.clientWidth;
+    const maxTranslate =
+      outerRef.current.clientWidth > innerRef.current.clientWidth
+        ? 0
+        : (innerRef.current.clientWidth - outerRef.current.clientWidth) / 2;
+    const minTranslate = -maxTranslate;
     const newTranslate = getNewTranslate(
       xTranslate,
       translateChange,
-      minTranslate
+      minTranslate,
+      maxTranslate
     );
     dispatch(setNavXTranslate(newTranslate));
   };
@@ -54,7 +58,7 @@ export const useClickToTranslate = (
     const offsetX =
       clientX.current - innerRef.current.getBoundingClientRect().left;
     const newTranslate =
-      outerRef.current.clientWidth / 2 - offsetX + xFromCardCenter.current;
+      innerRef.current.clientWidth / 2 - offsetX + xFromCardCenter.current;
     dispatch(setNavXTranslate(newTranslate));
   };
 

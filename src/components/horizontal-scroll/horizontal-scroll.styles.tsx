@@ -5,6 +5,7 @@ export const HorizontalScroll = styled.div`
   align-items: center;
   position: relative;
   overflow: hidden;
+  justify-content: center;
 `;
 
 export const Inner = styled.div`
