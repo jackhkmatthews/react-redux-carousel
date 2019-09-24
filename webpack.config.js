@@ -32,7 +32,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: "Output Management",
-      title: "Reduc React Carousel",
+      title: "Redux React Carousel",
       template: "./src/index.html"
     }),
     new webpack.HashedModuleIdsPlugin() // so that file hashes don't change unexpectedly
