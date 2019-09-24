@@ -18,14 +18,14 @@ export const useWheelToTranslate = (
   const updateTranslate = () => {
     const avgDeltaY = getAverage(lastKnownDeltaYs.current);
     const translateChange =
-      avgDeltaY * 0.1 * 0.01 * innerRef.current.clientWidth;
+      avgDeltaY * 0.1 * 0.01 * innerRef.current.clientWidth * -1;
     lastKnownDeltaYs.current = [0];
-    const maxTranslate =
-      innerRef.current.clientWidth - outerRef.current.clientWidth;
+    const minTranslate =
+      outerRef.current.clientWidth - innerRef.current.clientWidth;
     const newTranslate = getNewTranslate(
       xTranslate,
       translateChange,
-      maxTranslate
+      minTranslate
     );
     dispatch(setNavXTranslate(newTranslate));
   };
@@ -48,16 +48,20 @@ export const useClickToTranslate = (
   const dispatch = useDispatch();
 
   const clientX = React.useRef(0);
+  const xFromCardCenter = React.useRef(0);
 
   const updateTranslate = () => {
     const offsetX =
       clientX.current - innerRef.current.getBoundingClientRect().left;
-    const newTranslate = offsetX - outerRef.current.clientWidth / 2;
+    const newTranslate =
+      outerRef.current.clientWidth / 2 - offsetX + xFromCardCenter.current;
     dispatch(setNavXTranslate(newTranslate));
   };
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     clientX.current = e.clientX;
+    xFromCardCenter.current =
+      e.nativeEvent.offsetX - e.nativeEvent.toElement.clientWidth / 2;
     updateTranslate();
   };
 

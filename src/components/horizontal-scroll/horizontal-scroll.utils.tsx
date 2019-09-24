@@ -4,13 +4,13 @@ import { ScrollDirection } from "./horizontal-scroll.types";
 export const getNewTranslate = (
   currentTranslate: number,
   translateChange: number,
-  maxTranslate: number,
-  minimumTranslate = 0
+  minTranslate: number,
+  maxTranslate = 0
 ): number => {
   if (currentTranslate + translateChange > maxTranslate) {
     return maxTranslate;
-  } else if (currentTranslate + translateChange < minimumTranslate) {
-    return minimumTranslate;
+  } else if (currentTranslate + translateChange < minTranslate) {
+    return minTranslate;
   } else {
     return currentTranslate + translateChange;
   }

@@ -45,7 +45,7 @@ export default function HorizontalScroll({
         onClick={handleClick}
         ref={innerRef}
         style={{
-          transform: `translate3d(-${xTranslate}px, 0, 0)`
+          transform: `translate3d(${xTranslate}px, 0, 0)`
         }}
       >
         {children}
